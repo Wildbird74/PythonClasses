@@ -6,6 +6,7 @@ u = urllib.request.urlopen('http://ctabustracker.com/bustime/map/getStopPredicti
 data = u.read()
 
 from xml.etree.ElementTree import XML
+
 doc = XML(data)
 
 for pt in doc.findall('.//pt'):

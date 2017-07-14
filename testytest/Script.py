@@ -10,10 +10,12 @@ stopid = sys.argv[2]
 
 import urllib.request
 
-u = urllib.request.urlopen('http://ctabustracker.com/bustime/map/getStopPredictions.jsp?stop={}&route={}'.format(stopid,route))
+u = urllib.request.urlopen(
+    'http://ctabustracker.com/bustime/map/getStopPredictions.jsp?stop={}&route={}'.format(stopid, route))
 data = u.read()
 
 from xml.etree.ElementTree import XML
+
 doc = XML(data)
 
 for pt in doc.findall('.//pt'):
